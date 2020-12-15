@@ -1,0 +1,32 @@
+h1 {
+    color: darkgreen;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:3em;
+    background-color: lightgray;
+    margin: 1%;
+    padding: 3%;
+    background-image: linear-gradient(to bottom right, lightgoldenrodyellow,rgb(220, 198, 245), lightsteelblue );
+    box-shadow: 5px 5px 3px #a5a2a2;
+    
+}
+
+h1:hover {
+    transform: rotateY(180deg);
+}
+
+a {
+    font-style: oblique;
+    border: ridge;
+    border-width: 3px;
+    border-color: cornflowerblue;
+    padding: .5%;
+}
+a:hover {
+     animation-name: link;
+    animation-duration: 1s;
+}
+@keyframes link {
+    from {font-size: medium;}
+    to {font-size:x-large;}
+
+}

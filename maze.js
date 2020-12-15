@@ -2,13 +2,16 @@ function setup() {
     createCanvas(800, 800);
     rectMode(CENTER)
     noStroke()
+
   }
   function draw() {
     hori();
     player.on();
-    tagger.on();
-   obstac.show()
+    tagger.mousemove();
+    obstac.show()
     keyPressed()
+    //obstacle()
+    
     //lvlCheck(500,0)
     // obstac.borderCheck(0, 100);
   }
@@ -17,6 +20,10 @@ function setup() {
   var lvl2 = true;
   var mS = 2;
   var ns = 0
+  var goUp = true;
+  var goDw = true;
+  var goRt = true;
+  var goLf = true;
 var playCk = 17.3
 var spped = 2.5;
 
@@ -32,8 +39,10 @@ var spped = 2.5;
   noFill()
   rect(473, 300, 650, 500);
   passLVL(750,0)
-    walls(0,550)
-  //BouceObs(100,0)
+    side(160,0)
+    walls(0,538)
+    taggeM(790,0)
+
 }
 
 
@@ -47,6 +56,10 @@ on: function movePlayer() {
   shape = rect(player.x, player.y, 25,25)
   
 },
+off: function playerOff() {
+  fill('#a5f1f6')
+
+}
 }
 
 var tagger = {
@@ -56,11 +69,10 @@ var tagger = {
 
 on: function moveTagger() {
   fill('#darkgrey')
-  shape = rect(tagger.x, tagger.y, 25,25)
+  shape = rect(tagger.x, tagger.y, 20,20)
 },
 
 }
-
 
 
 
@@ -74,18 +86,29 @@ function keyPressed() {
   if(keyCode === 39) {
     player.x += mS
   }
-  if(keyCode === 37 & goLf == true)  {
+  if(keyCode === 37)  {
     player.x += -mS
   }
+//   if(keyCode === 87) {
+//     tagger.y += -mS
+//   }
+//   if(keyCode === 83)  {
+//     tagger.y += mS
+//   }
+//   if(keyCode === 68) {
+//     tagger.x += mS
+//   }
+//   if(keyCode === 65 )  {
+//     tagger.x += -mS
+//   }
   
 }
 window.addEventListener("keydown", function(e) {
   // space and arrow keys
-  if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+  if([32, 37, 38, 39, 40, 87,83,68,39].indexOf(e.keyCode) > -1) {
       e.preventDefault();
   }
 }, false);
-
 
 
 var obstac = {
@@ -111,10 +134,41 @@ function passLVL(x,y) {
 function walls(x,y) {
   if(y > 0) {
     if (player.y >= y) {
-      player.off()
+        player.x= 200
+        player.y= 300
+      console.log('off')
     }
+    
   }
 }
+function side(x,y) {
+    if(x > 0) {
+      if (player.x <= x) {
+          player.x= 200
+          player.y= 300
+        console.log('side')
+      }
+    }
+  }
 
 
+function touch(x,y) {
+    if (player.x === tagger.x) {
+        console.log('touch')
+    }
+}
 
+function taggeM(x,y) {
+    if(x > 0) {
+      if (tagger.x >= x) {
+        tagger.x= 200
+        tagger.y= 300
+      }
+    }
+  }
+
+
+// var obs
+// function obstacle() {
+//     obs = new component(10, 200, "green", 300, 120);
+// }
