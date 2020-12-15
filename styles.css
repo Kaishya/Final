@@ -3,7 +3,7 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size:3em;
     background-color: lightgray;
-    margin: 1%;
+    margin: 2%;
     padding: 3%;
     background-image: linear-gradient(to bottom right, lightgoldenrodyellow,rgb(220, 198, 245), lightsteelblue );
     box-shadow: 5px 5px 3px #a5a2a2;
@@ -18,8 +18,10 @@ a {
     font-style: oblique;
     border: ridge;
     border-width: 3px;
-    border-color: cornflowerblue;
+    border-color: #C0A5F9;
     padding: .5%;
+
+
 }
 a:hover {
      animation-name: link;
@@ -29,4 +31,35 @@ a:hover {
     from {font-size: medium;}
     to {font-size:x-large;}
 
+}
+
+h2 {
+    color: rgb(26, 16, 56);
+    border-style: dashed;
+    border-width: 2px;
+    background-color: lightsteelblue;
+    border-color: cadetblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 2%;
+}
+h2:hover {
+    animation-name: p;
+    animation-duration: 4s;
+}
+@keyframes p{
+    from {background-color:lightsteelblue}
+    to {background-color: rgb(161, 230, 152)}
+}
+
+
+Body {
+    background-color: rgb(189, 218, 238);
+    animation-name: hi;
+    animation-duration: 4s;
+
+}
+
+@keyframes hi{
+    from {background-color:rgb(235, 235, 198)}
+    to {background-color:rgb(189, 218, 238)}
 }
