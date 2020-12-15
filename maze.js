@@ -1,5 +1,5 @@
 function setup() {
-    createCanvas(800, 800);
+    createCanvas(800, 700);
     rectMode(CENTER)
     noStroke()
 
@@ -49,7 +49,7 @@ var playCk = 17.3
 var spped = 2.5;
 let points = []
 let shapes = []
-let size = 50
+let size = 30
 let isDrawing = false
 
 
@@ -171,8 +171,8 @@ function passLVL(x,y) {
   if(x > 0) {
     if (player.x >= x) {
       lvl1 = false;
-      player.x= 500
-      player.y= 200
+      player.x= 200
+      player.y= 300
       
       console.log('otherside')
       drawAllow = true
@@ -193,13 +193,13 @@ function passTag(x,y) {
       }
     }
 function revealOth() {
-        document.getElementById('no').innerHTML= "<p> Your Charater made it! Try the aswd keys to move the other <p>"
+        document.getElementById('no').innerHTML= "<p> Your character made it! Try the aswd keys to move the other <p>"
 }
 function revealDr() {
-        document.getElementById('yes').innerHTML= "<p> Press f to draw on a canvas and reload to refresh canvas <p>"
+        document.getElementById('yes').innerHTML= "<p> Press F to draw on a canvas and reload to get a new one <p>"
 }
 function revealT() {
-    document.getElementById('tag').innerHTML= "<p> Your Square made it! Try moving him out of the box to make more designs <p>"
+    document.getElementById('tag').innerHTML= "<p> Your square made it! Try to move both out of the box to make more designs <p>"
 }
 
 
@@ -253,6 +253,8 @@ function drawMouseDot() {
 
     circle(mouseX, mouseY, size)
 //e4d4fad4faef
+
+
     stroke('#e4d4fa')
     strokeWeight(7)
 
@@ -281,7 +283,7 @@ function drawDots() {
 
 function drawLines() {
     stroke('gray')
-    strokeWeight(7)
+    strokeWeight(4)
 
     for (let i = 0; i < points.length - 1; i++) {
         line(points[i].x, points[i].y, 
@@ -307,12 +309,12 @@ function clearDots() {
 }
 
 let rolly = document.getElementById('rolly')
-let num = getRandomInt(6)
+let num = getRandomInt(7)
 let haveRoll = false
 let die = document.getElementById('die')
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() *  6);
+    return Math.floor(Math.random() *  8);
 }
 
 
@@ -334,6 +336,15 @@ function theNum() {
     if ([num].includes(5)) {
         document.getElementById('idea').innerHTML= "<p>Draw A Castle<p>"
     }
+    if ([num].includes(6)) {
+        document.getElementById('idea').innerHTML= "<p>Try drawing outside the canvas ;)<p>"
+    }
+    if ([num].includes(7)) {
+        document.getElementById('idea').innerHTML= "<p>Try to blackout the canvas with the squares<p>"
+    }
+    if ([num].includes(8)) {
+        document.getElementById('idea').innerHTML= "<p>Draw Your house<p>"
+    }
 
 }
 
@@ -353,3 +364,7 @@ numb.forEach(num => {
 })
 }
 
+
+function bored() {
+    document.getElementById('bore').innerHTML= "<p>If you are bored, try playing this game: draw two trianges on the canvas then try to move your squares to the excat spots with just memory<p>"
+}

@@ -63,3 +63,18 @@ Body {
     from {background-color:rgb(235, 235, 198)}
     to {background-color:rgb(189, 218, 238)}
 }
+
+button {
+    border-style: initial;
+    border-width:2px;
+    padding: 1%;
+    margin: 2%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+button:hover {
+    transform: rotate(360deg);
+    transition-duration: 2s;
+    
+    /* transform: translate(50px,100px); */
+  }
